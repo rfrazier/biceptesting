@@ -1,3 +1,15 @@
+/* This workflow is intended to be called from the command line or integrated into a pipeline where the resource group is specified separately.
+
+i.e.
+
+az group create --name BicepTesting --location westus
+az deployment group 
+              --resource-group BicepTesting \
+              --template-file deploy/main.bicep \
+              --parameters environmentType='Test'
+
+*/
+
 @description('The location into which your Azure resources should be deployed.')
 param location string = resourceGroup().location
 
